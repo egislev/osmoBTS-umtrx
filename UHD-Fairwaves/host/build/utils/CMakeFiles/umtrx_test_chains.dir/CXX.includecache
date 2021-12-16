@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lime/umtrx/UHD-Fairwaves/host/utils/umtrx_test_chains.cpp
+uhd/utils/thread.hpp
+-
+uhd/utils/thread_priority.hpp
+-
+uhd/utils/safe_main.hpp
+-
+uhd/usrp/multi_usrp.hpp
+-
+boost/program_options.hpp
+-
+boost/thread/thread.hpp
+-
+boost/format.hpp
+-
+iostream
+-
+complex
+-
+

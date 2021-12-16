@@ -1,0 +1,153 @@
+umtrx (1.0.19) bionic; urgency=medium
+
+  * library now supports python3
+  * updated for latest UHD/libboost
+
+ -- Kirill Zakharenko <kirill.zakharenko@fairwaves.co>  Tue, 26 May 2020 07:48:32 +0300
+
+umtrx (1.0.18) bionic; urgency=medium
+
+  * umtrx status monitor now binds to localhost instead of 0.0.0.0
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Fri, 12 Jul 2019 13:39:48 +0300
+
+umtrx (1.0.17) bionic; urgency=medium
+
+  * umtrx_auto_calibration: save result files to /var/lib/umtrx by default
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Wed, 20 Jun 2019 13:39:48 +0300
+
+umtrx (1.0.16) bionic; urgency=medium
+
+  * first bionic build
+  * python libraries are now in PYTHONPATH and reusable
+  * minimized Boost build deps for faster builds
+  * dropped collectd integration
+  * fixed abrupt termination of umtrx_cal_*
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Wed, 19 Jun 2019 13:39:48 +0300
+
+umtrx (1.0.15) trusty; urgency=medium
+
+  * host: Python 2 compatibility for umtrx_property_tree.py
+  * utils: s/USRP/UmTRX/g in console output of umtrx_net_burner.py
+
+ -- Rauf Gyulaliev <rauf.gyulaliev@fairwaves.co>  Tue, 15 Aug 2017 03:03:23 +0300
+
+umtrx (1.0.14) trusty; urgency=medium
+
+  * Quick build fix.
+
+ -- Rauf Gyulaliev <rauf.gyulaliev@fairwaves.co>  Mon, 07 Aug 2017 09:15:31 +0300
+
+umtrx (1.0.13) trusty; urgency=low
+
+  * [ZPU/host] Read TCXO DAC calibration from EEPROM once on UmTRX boot instead
+    of reading and setting it every time we launch a UHD app.
+  * [ZPU] Faster GPSDO converging when setting TCXO DAC value manually.
+  * [ZPU] BUGFIX: Optimize ZPU image size to avoid stack overflow.
+  * [ZPU] Print and check available ZPU stack space when compiling images.
+  * [FPGA/ZPU] Increase FPGA minor version number, generate new stable images.
+
+ -- Alexander Chemeris <Alexander.Chemeris@fairwaves.co>  Fri, 04 Aug 2017 15:55:56 +0300
+
+umtrx (1.0.12) trusty; urgency=low
+
+  * [ZPU] BUGFIX: Fix GPSDO rounding issue to stabilize frequency down to +-1 Hz @ 52MHz.
+  * [ZPU] Export measured frequency and last PPS time over the control socket.
+  * [ZPU] Allow GPSDO debug enable/disable over the control socket.
+  * [ZPU] Print firmware minor version and git hash on startup.
+  * [ZPU] Make debug output on wrong packets less scary for users.
+  * [host] Cleanup UmTRX detection on UHD startup.
+  * [host] Export DC calibration registers through the property tree.
+  * [host] Fix build with newer UHD versions.
+  * [utils] BUGIX: Multiple fixes for the umtrx_ty_tree.py module.
+  * [utils] Lowercase sensor names in umtrx2collectd.
+
+ -- Alexander Chemeris <Alexander.Chemeris@fairwaves.co>  Thu, 27 Jul 2017 23:46:07 +0300
+
+umtrx (1.0.11) trusty; urgency=low
+
+  * collectd: use 'fairwaves-monitoring' user to run plugin
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Sun, 27 Mar 2016 19:37:39 +0100
+
+umtrx (1.0.10) trusty; urgency=low
+
+  * collectd: rewritten counter collection plugin
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Mon, 21 Mar 2016 19:21:00 +0100
+
+umtrx (1.0.9) trusty; urgency=low
+
+  * collectd: osmo-nitb counter collection plugin
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Mon, 24 Feb 2016 19:35:56 +0300
+
+umtrx (1.0.8) trusty; urgency=low
+
+  * host: integrate support class for umsel2
+  * host: integrate support class for umsel2
+  * host: implement selection for umsel2 + lms
+  * host: umsel2 register work for adf355-2
+  * host: umsel2 adf355-2 tuning algorithm
+  * host: freq update sequence, copied registers from gui
+  * host: print locked for debugging
+  * umsel: device args for enabling umsel2 and verbose
+  * add lmsvga1 device args parameter to override VGA1_DEF
+  * autodetect DCDC translation version on startup
+  * add lmsvga2 args parameter to override UMTRX_VGA2_DEF
+  * turn off vin bypass to amplifiers by default
+  * throw exception if incorrect DCDC version were provided
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Mon, 28 Dec 2015 15:07:56 +0300
+
+umtrx (1.0.7) trusty; urgency=low
+
+  * host: Properly handle most corner cases in VSWR calculations
+  * host: Add "STRING" to umtrx_monitor error output
+  * host: Add string getters/setters to the Python property tree library
+  * host: Checking in umtrx_query_versions.py
+  * debian: packaged python utils in host/utils
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Mon, 25 Dec 2015 19:35:56 +0100
+
+umtrx (1.0.6) trusty; urgency=low
+
+  * host: make boost property tree thread safe
+  * host: support string type in JSON query
+  * debian: build now produces an additional package with debug symbols
+  * umtrx_firmware: fixed typo preventing it from working
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Mon, 21 Dec 2015 14:23:56 +0300
+
+umtrx (1.0.5) trusty; urgency=low
+
+  * host: disable umtrx_fifo_ctrl cache of spi config
+  * host: Fix getters in umtrx_property_tree.py.
+  * debian: added firmware to package and umtrx_firmware script to handle it
+  * fpga: created axi stream controled spi core
+  * fpga: use axi stream spi core (still single dest)
+  * fpga: connect both spi settings drivers
+  * fpga: simplify spi setting regs with generate loop
+  * fpga: updated 4x ddc image for spi work
+
+ -- Kirill Zakharenko <earwin@gmail.com>  Mon, 23 Nov 2015 15:51:56 +0300
+
+umtrx (1.0.4) unstable; urgency=low
+
+  * Do not add 'g' to a git id when creating a version string.
+  * Proper debianization.
+  * Add ability to set diversity switches position from UHD args.
+  * By default route each Rx channel to it's own antenna.
+  * JSON API to question/control property tree of a running UHD app. Useful for querying sensors and for debugging purposes.
+  * Python utility to query VSWR from a running UHD app in real time using JSON API.
+  * Fix DC and IQ calibration utilities.
+
+ -- Alexander Chemeris <Alexander.Chemeris@fairwaves.co>  Tue, 21 Jul 2015 18:51:56 -0400
+
+umtrx (1.0.3) unstable; urgency=low
+
+  * Created debian control files for 1.0.3 release of umtrx
+
+ -- Josh Blum <josh@pothosware.com>  Sat, 20 Jun 2015 16:31:24 -0700

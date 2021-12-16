@@ -1,0 +1,13 @@
+/usr/local/lib/uhd/modules/libumtrx.so
+/usr/local/bin/umtrx_nmea
+/usr/local/bin/umtrx_gps_coord
+/usr/local/bin/umtrx_auto_calibration
+/usr/local/bin/umtrx_firmware
+/usr/local/bin/umtrx_net_burner
+/usr/local/bin/umtrx_query_sensors
+/usr/local/bin/umtrx_query_versions
+/usr/local/bin/umtrx_test_chains
+/usr/local/bin/umtrx_test_gains
+/usr/local/bin/umtrx_cal_tx_dc_offset
+/usr/local/bin/umtrx_cal_tx_iq_balance
+/usr/local/bin/umtrx_pa_ctrl
